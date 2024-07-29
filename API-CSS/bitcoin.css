@@ -1,0 +1,47 @@
+.bitcoin-card {
+    background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+.bitcoin-container {
+    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.bitcoin-h2 {
+    margin-top: 0;
+}
+
+.btc-rate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.bitcoin-img {
+    width: 40px;
+}
+.btc-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.btc-value-eur, .btc-value-usd{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333333;
+    margin: 0;
+}
+
+#updated-on {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #666666;
+    margin-top: 20px;
+}

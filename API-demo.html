@@ -7,6 +7,7 @@
     <title>Begin With API</title>
     <link rel="stylesheet" href="API-demo.css">
     <link rel="stylesheet" href="API-CSS/weather.css">
+    <link rel="stylesheet" href="API-CSS/bitcoin.css">
 </head>
 
 <body>
@@ -405,16 +406,150 @@ checkWeather();</code></pre>
             </div>
         </div>
         <div class="description">
-            <p>You will need add you API Key at the place of apiKey in the Js code, which will you get from https://openweathermap.org/api.</p>
+            <p>You will need to add your API Key at the place of apiKey in the Js code, which will you get from https://openweathermap.org/api.</p>
         </div>
     </div>
+    <div class="api-container">
+        <div class="api-card">
+            <!-- Weather API demonstration content goes here -->
+             <div class="bitcoin-container">
+            <div class="bitcoin-card">
+                <h2 class="bitcoin-h2">Current BTC Value</h2>
+                <img src="images/bitcoin/bitcoin.png" class="bitcoin-img">
+                <div class="btc-rate">
+                    <img src="images/bitcoin/dollar.png" alt="Dollar" class="btc-icon">
+                    <p id="btc-value-usd">USD: Loading...</p>
+                </div>
+                <div class="btc-rate">
+                    <img src="images/bitcoin/euro.png" alt="Euro" class="btc-icon">
+                    <p id="btc-value-eur">EUR: Loading...</p>
+                </div>
+                <p id="updated-on">Updated on: --/--/----</p>
+            </div>
+        </div>
+             <!--Weather API demonstration content ends here -->
+        <div class="code-section">
+            <div class="code-box">
+                <h3>HTML Code <button class="copy-btn" onclick="copyCode(this)">Copy</button> </h3>
+                <pre><code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="UTF-8"&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                        &lt;title&gt;BTC Value Card&lt;/title&gt;
+                        &lt;link rel="stylesheet" href="style.css"&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;div class="card"&gt;
+                            &lt;h2&gt;Current BTC Value&lt;/h2&gt;
+                            &lt;img src="bitcoin.png" class="bitcoin-img"&gt;
+                            &lt;div class="rate"&gt;
+                                &lt;img src="dollar.png" alt="Dollar" class="icon"&gt;
+                                &lt;p id="btc-value-usd"&gt;USD: Loading...&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class="rate"&gt;
+                                &lt;img src="euro.png" alt="Euro" class="icon"&gt;
+                                &lt;p id="btc-value-eur"&gt;EUR: Loading...&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;p id="updated-on"&gt;Updated on: --/--/----&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;script src="script.js"&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
 
+                </code></pre>
+            </div>
+            <div class="code-box">
+                <h3>CSS Code <button class="copy-btn" onclick="copyCode(this)">Copy</button></h3>
+                <pre><code>
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        margin: 0;
+                        font-family: Arial, sans-serif;
+                        background-color: #f0f0f0;
+                    }
+                    
+                    .card {
+                        background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
+                        border: 1px solid #cccccc;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        padding: 20px;
+                        text-align: center;
+                        width: 300px;
+                    }
+                    
+                    h2 {
+                        margin-top: 0;
+                    }
+                    
+                    .rate {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 10px 0;
+                    }
+                    .bitcoin-img {
+                        width: 40px;
+                    }
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                    
+                    p {
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        color: #333333;
+                        margin: 0;
+                    }
+                    
+                    #updated-on {
+                        font-size: 0.8em;
+                        font-weight: normal;
+                        color: #666666;
+                        margin-top: 20px;
+                    }
+                    
+                   </code></pre>
+            </div>
+            <div class="code-box">
+                <h3>JS Code <button class="copy-btn" onclick="copyCode(this)">Copy</button> </h3>
+                <pre><code>
+                    const url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+                    async function getrate(){
+
+                        const response = await fetch(url);
+                        var data = await response.json();
+                        console.log(data);
+                        const t= data.time.updated;
+                        console.log(t);
+                        document.getElementById('btc-value-usd').innerHTML = data.bpi.USD.rate;
+                        document.getElementById('btc-value-eur').innerHTML = data.bpi.EUR.rate;
+                        document.getElementById('updated-on').innerHTML = t;
+                        
+                        
+                    }
+                    getrate();
+                   </code></pre>
+            </div>
+        </div>
+        <div class="description">
+            <p>Here you don't require any of the api key to use this API</p>
+        </div>
+    </div>
 
 
     <!-- Repeat .api-container for other APIs -->
 
     <script src="API-demo.js"></script>
     <script src="API-JS/weather.js"></script>
+    <script src="API-JS/bitcoin.js"></script>
 </body>
 
 </html>
