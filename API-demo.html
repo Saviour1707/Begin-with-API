@@ -86,7 +86,89 @@
         <div class="code-section">
             <div class="code-box">
                 <h3>HTML Code <button class="copy-btn" onclick="copyCode(this)">Copy</button> </h3>
-                <pre><code></code></pre>
+                <pre><code>
+                    &lt;!-- https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=metric --&gt;
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Weather App&lt;/title&gt;
+                &lt;link rel="stylesheet" href="weather.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+
+                &lt;div class="WeatherBox"&gt;
+                    &lt;div class="search"&gt;
+                        &lt;input type="text" placeholder="Enter City Name" spellcheck="false"&gt;
+                        &lt;button&gt;&lt;img src="images/search.png"&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class="error"&gt;
+                        &lt;p&gt;Invalid City Name&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="weather"&gt;
+                        &lt;img src="images/rain.png" class="weather-icon"&gt;
+                        &lt;h1 class="temp"&gt;07°C&lt;/h1&gt;
+                        &lt;h2 class="city"&gt;Jamshedpur&lt;/h2&gt;
+                        &lt;div class="details"&gt;
+                            &lt;div class="col"&gt;
+                                &lt;img src="images/humidity.png"&gt;
+                                &lt;div&gt;
+                                    &lt;p class="humidity"&gt;10%&lt;/p&gt;
+                                    &lt;p&gt;Humidity&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="col"&gt;
+                                &lt;img src="images/wind.png"&gt;
+                                &lt;div&gt;
+                                    &lt;p class="wind"&gt;10 Km/hr&lt;/p&gt;
+                                    &lt;p&gt;wind Speed&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="details"&gt;
+                            &lt;div class="col"&gt;
+                                &lt;img src="images/thermometer.png"&gt;
+                                &lt;div&gt;
+                                    &lt;p class="feels-like"&gt;07°C&lt;/p&gt;
+                                    &lt;p&gt;Feels Like&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="col"&gt;
+                                &lt;img src="images/visibility.png"&gt;
+                                &lt;div&gt;
+                                    &lt;p class="visibility"&gt;1 km&lt;/p&gt;
+                                    &lt;p&gt;Visibility&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="sunrise"&gt;
+                    &lt;img src="images/sunrise.png"&gt;
+                    &lt;h1&gt;Sunrise&lt;/h1&gt;
+                    &lt;div class="sunrise-details"&gt;
+                        &lt;p class="sunrise-time"&gt;&lt;/p&gt;
+                        &lt;p class="Sunrise-Day"&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="sunset"&gt;
+                    &lt;img src="images/sunset.png"&gt;
+                    &lt;h1&gt;Sunset&lt;/h1&gt;
+                    &lt;div class="sunset-details"&gt;
+                        &lt;p class="sunset-time"&gt;&lt;/p&gt;
+                        &lt;p class="Sunset-Day"&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;script src="weather.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+
+                </code></pre>
             </div>
             <div class="code-box">
                 <h3>CSS Code <button class="copy-btn" onclick="copyCode(this)">Copy</button></h3>
@@ -323,7 +405,7 @@ checkWeather();</code></pre>
             </div>
         </div>
         <div class="description">
-            <p>A little bit description about how to do things.</p>
+            <p>You will need add you API Key at the place of apiKey in the Js code, which will you get from https://openweathermap.org/api.</p>
         </div>
     </div>
 
