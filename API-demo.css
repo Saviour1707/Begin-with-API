@@ -19,9 +19,11 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-radius: 7px;
 }
 
 .api-card {
+    border-radius: 7px;
     background-color: #f9f9f9;
     padding: 20px;
     border: 1px solid #ccc;
@@ -40,6 +42,7 @@ nav {
     border: 1px solid #ccc;
     height: 300px; /* Set a fixed height */
     overflow-y: scroll; /* Enable vertical scrolling */
+    border-radius: 7px;
 }
 
 .code-box:last-child {
@@ -54,6 +57,7 @@ nav {
     background-color: #ffefcf;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 7px;
 }
 .code-box h3{
     display: flex;

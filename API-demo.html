@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="API-demo.css">
     <link rel="stylesheet" href="API-CSS/weather.css">
 </head>
+
 <body>
     <nav>
         <!-- Navigation Bar Content -->
@@ -14,35 +16,323 @@
 
     <div class="api-container">
         <div class="api-card">
-            <!-- API demonstration content goes here -->
-            <p>In this box, the API will be demonstrated live.</p>
-        </div>    
+            <!-- Weather API demonstration content goes here -->
+
+            <div class="WeatherBox">
+                <div class="search">
+                    <input type="text" placeholder="Enter City Name" spellcheck="false">
+                    <button><img src="images/weather/search.png"></button>
+                </div>
+                <div class="error">
+                    <p>Invalid City Name</p>
+                </div>
+                <div class="weather">
+                    <img src="images/weather/rain.png" class="weather-icon">
+                    <h1 class="temp">07°C</h1>
+                    <h2 class="city">Jamshedpur</h2>
+                    <div class="details">
+                        <div class="col">
+                            <img src="images/weather/humidity.png">
+                            <div>
+                                <p class="humidity">10%</p>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="images/weather/wind.png">
+                            <div>
+                                <p class="wind">10 Km/hr</p>
+                                <p>wind Speed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="col">
+                            <img src="images/weather/thermometer.png">
+                            <div>
+                                <p class="feels-like">07°C</p>
+                                <p>Feels Like</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="images/weather/visibility.png">
+                            <div>
+                                <p class="visibility">1 km</p>
+                                <p>Visibility</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sunrise">
+                <img src="images/weather/sunrise.png">
+                <h1>Sunrise</h1>
+                <div class="sunrise-details">
+                    <p class="sunrise-time"></p>
+                    <p class="Sunrise-Day"></p>
+                </div>
+            </div>
+            <div class="sunset">
+
+                <img src="images/weather/sunset.png">
+                <h1>Sunset</h1>
+                <div class="sunset-details">
+                    <p class="sunset-time"></p>
+                    <p class="Sunset-Day"></p>
+                </div>
+            </div>
+        </div>
+        <!--Weather API demonstration content ends here -->
         <div class="code-section">
             <div class="code-box">
                 <h3>HTML Code <button class="copy-btn" onclick="copyCode(this)">Copy</button> </h3>
-                               <pre><code>
-                    Aniket<!-- HTML code snippet here --></code></pre>
+                <pre><code></code></pre>
             </div>
             <div class="code-box">
                 <h3>CSS Code <button class="copy-btn" onclick="copyCode(this)">Copy</button></h3>
                 <pre><code>
-                    Kumar<!-- CSS code snippet here --></code></pre>
-                                </div>
+                    *{
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Poppins', sans-serif;
+                        box-sizing: border-box;
+                    }
+                    
+                    .WeatherBox{
+                        width: 90%;
+                        max-width: 470px;
+                        background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+                        color: #fff;
+                        margin: 100px auto 0;
+                        border-radius: 20px;
+                        padding: 40px 35px;
+                        text-align: center;
+                    }
+                    .search
+                    {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                    .search input{
+                        border: 0;
+                        outline: 0;
+                        background: #ebfffc;
+                        color: #555;
+                        padding: 10px 25px;
+                        height: 60px;
+                        border-radius: 30px;
+                        flex: 1;
+                        margin-right: 16px;
+                        font-size: 18px;
+                    }
+                    .search button{
+                        border: 0;
+                        outline: 0;
+                        background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+                        border-radius: 50%;
+                        width: 60px;
+                        height: 60px;
+                        cursor: pointer;
+                    }
+                    .search button img{
+                        width: 58px;
+                    }
+                    .weather-icon{
+                        width: 170px;
+                        margin-top: 30px;
+                    }
+                    .weather h1{
+                        font-size: 80px;
+                        font-weight: 500;
+                    }
+                    .weather h2{
+                        font-size: 45px;
+                        font-weight: 400;
+                        margin-top: -10px;
+                    }
+                    .details{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding:  0 20;
+                        margin-top: 50px;
+                    
+                    }
+                    .col{
+                        display: flex;
+                        align-items: center;
+                        text-align: left;
+                    }
+                    .col img{
+                        width: 40px;
+                        margin-right: 10px;
+                    }
+                    .humidity, .wind, .visibility, .feels-like{
+                        font-size: 28px;
+                        margin-top: -6px;
+                    }
+                    .error{
+                        text-align: left;
+                        margin-left: 10px;
+                        font-size: 14px;
+                        margin-top: 10px;
+                        display: none;
+                    }
+                    .sunrise,
+                    .sunset {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 200px; /* Adjust width as needed */
+                        background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+                        border-radius: 20px;
+                        text-align: center;
+                        color: #fff;
+                        font-weight: 700;
+                        
+                    }
+                    
+                    .sunrise {
+                        left: calc(50% - 470px); /* Adjust according to the center div width */
+                    }
+                    
+                    .sunset {
+                        right: calc(50% - 470px); /* Adjust according to the center div width */
+                    }
+                    
+                    .sunrise h1,
+                    .sunset h1 {
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .sunrise-details,
+                    .sunset-details {
+                        padding: 10px;
+                    }
+                    
+                    .sunrise img,
+                    .sunset img {
+                        border-radius: 50%;
+                        width: 170px; /* Adjust to match the weather icon size */
+                        height: auto; /* Keep aspect ratio */
+                        margin-top: 30px; 
+                        /* Adjust vertical alignment */
+                    }</code></pre>
+            </div>
             <div class="code-box">
                 <h3>JS Code <button class="copy-btn" onclick="copyCode(this)">Copy</button> </h3>
                 <pre><code>
-                    my name is aniket kumar chaudhary<!-- JavaScript code snippet here --></code></pre>
-                               </div>
+                    const apiKey = "Enter your API key here"; 
+                    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+                    const searchBox = document.querySelector(".search input");
+                    const searchBtn = document.querySelector(".search button");
+                    const weatherIcon = document.querySelector(".weather-icon");
+                    const invalidCity = document.querySelector(".error");
+
+                    async function checkWeather(city) {
+                        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+                        if (response.status == 404) {
+                            document.querySelector(".error").style.display = "block";
+                            document.querySelector(".weather").style.display = "none";
+                        }
+                        else {
+
+                            var data = await response.json();
+                            console.log(data);
+                            document.querySelector(".city").innerHTML = data.name;
+                            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                            document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + " km/h";
+                            document.querySelector(".feels-like").innerHTML = Math.round(data.main.feels_like) + "°C";
+                            document.querySelector(".visibility").innerHTML = data.visibility / 1000 + " km";
+
+                            const offsetSeconds = data.timezone;
+                            const hours = Math.floor(offsetSeconds / 3600);
+                            const minutes = (offsetSeconds % 3600) / 60;
+                            const offsetStr = `UTC${hours >= 0 ? '+' : ''}${hours}:${minutes.toString().padStart(2, '0')}`;
+
+                            var utcSeconds = data.sys.sunrise + data.timezone;
+                            var sunriseDate = new Date(0);
+                            sunriseDate.setUTCSeconds(utcSeconds);
+
+                            var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+                            var sunriseDayOfWeek = daysOfWeek[sunriseDate.getUTCDay()];
+                            var sunriseOptions = { month: 'short', day: '2-digit', year: 'numeric' };
+                            var formattedSunriseDate = sunriseDate.toLocaleDateString('en-US', sunriseOptions).replace(',', '');
+
+                            var rise_hours = sunriseDate.getUTCHours().toString().padStart(2, '0');
+                            var rise_minutes = sunriseDate.getUTCMinutes().toString().padStart(2, '0');
+                            var rise_seconds = sunriseDate.getUTCSeconds().toString().padStart(2, '0');
+
+                            var sunriseTime = `${rise_hours}:${rise_minutes}:${rise_seconds}`;
+
+                            var utCSeconds = data.sys.sunset + data.timezone;
+                            var sunsetDate = new Date(0);
+                            sunsetDate.setUTCSeconds(utCSeconds);
+
+                            var sunsetDayOfWeek = daysOfWeek[sunsetDate.getUTCDay()];
+                            var sunsetOptions = { month: 'short', day: '2-digit', year: 'numeric' };
+                            var formattedSunsetDate = sunsetDate.toLocaleDateString('en-US', sunsetOptions).replace(',', '');
+
+                            var set_hours = sunsetDate.getUTCHours().toString().padStart(2, '0');
+                            var set_minutes = sunsetDate.getUTCMinutes().toString().padStart(2, '0');
+                            var set_seconds = sunsetDate.getUTCSeconds().toString().padStart(2, '0');
+
+                            var sunsetTime = `${set_hours}:${set_minutes}:${set_seconds}`;
+
+                            document.querySelector(".sunrise-time").innerHTML = sunriseTime + " " + offsetStr;
+                            document.querySelector(".sunset-time").innerHTML = sunsetTime + " " + offsetStr;
+                            document.querySelector(".Sunrise-Day").innerHTML = `${sunriseDayOfWeek} ${formattedSunriseDate}`;
+                            document.querySelector(".Sunset-Day").innerHTML = `${sunriseDayOfWeek} ${formattedSunriseDate}`;
+
+
+                            if (data.weather[0].main == "Clouds") {
+                                weatherIcon.src = "images/cloudy.png";
+                            }
+                            else if (data.weather[0].main == "Clear") {
+                                weatherIcon.src = "images/sunny.png";
+                            }
+                            else if (data.weather[0].main == "Rain") {
+                                weatherIcon.src = "images/rain.png";
+                            }
+                            else if (data.weather[0].main == "Drizzle") {
+                                weatherIcon.src = "images/drizzle.png";
+                            }
+                            else if (data.weather[0].main == "Mist") {
+                                weatherIcon.src = "images/mist.png";
+                            }
+                            else if (data.weather[0].main == "Haze") {
+                                weatherIcon.src = "images/haze.png";
+                            }
+                            document.querySelector(".weather").style.display = "block";
+                            document.querySelector(".error").style.display = "none";
+                        }
+
+
+
+
+}
+searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value);
+})
+checkWeather();</code></pre>
+            </div>
         </div>
         <div class="description">
             <p>A little bit description about how to do things.</p>
         </div>
     </div>
-    
-   
+
+
 
     <!-- Repeat .api-container for other APIs -->
 
     <script src="API-demo.js"></script>
+    <script src="API-JS/weather.js"></script>
 </body>
+
 </html>
